@@ -25,5 +25,5 @@ export function useProjections(
       projections,
       summary: computeSummary(projections),
     }
-  }, [chambers, districts, params.wave, params.win_probability, params.competitive_range])
+  }, [chambers, districts, params.wave])
 }

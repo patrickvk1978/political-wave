@@ -76,6 +76,4 @@ export interface SummaryStats {
 
 export interface WaveParams {
   wave: number           // 0–0.20 (decimal), e.g. 0.06 = 6%
-  win_probability: number // 0–1, D win probability in competitive districts
-  competitive_range: number // 0–0.20, margin threshold for "competitive"
 }

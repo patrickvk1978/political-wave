@@ -106,53 +106,56 @@ export function MethodologyPage() {
             <h2 className="text-lg font-semibold text-slate-900 mb-3">District Classification</h2>
             <p>
               After applying the wave and incumbency adjustments, each district is classified
-              based on its adjusted margin (Democratic vote share minus Republican vote share).
-              The competitive range parameter defines the boundary between safe and competitive
-              seats. At the default setting of 8 points:
+              based on its logistic win probability:
             </p>
             <ul className="mt-3 space-y-1.5 ml-4">
               <li className="flex gap-2">
                 <span className="font-semibold text-blue-800 shrink-0">Safe D:</span>
-                <span>Democratic margin exceeds the competitive range</span>
+                <span>D win probability 90% or higher</span>
               </li>
               <li className="flex gap-2">
                 <span className="font-semibold text-blue-400 shrink-0">Lean D:</span>
-                <span>Democrats lead, but within the competitive range</span>
+                <span>D win probability 60–90%</span>
               </li>
               <li className="flex gap-2">
                 <span className="font-semibold text-purple-500 shrink-0">Competitive:</span>
-                <span>Margin is within the inner band (40% of the range on either side)</span>
+                <span>D win probability 40–60%</span>
               </li>
               <li className="flex gap-2">
                 <span className="font-semibold text-red-400 shrink-0">Lean R:</span>
-                <span>Republicans lead, but within the competitive range</span>
+                <span>D win probability 10–40%</span>
               </li>
               <li className="flex gap-2">
                 <span className="font-semibold text-red-700 shrink-0">Safe R:</span>
-                <span>Republican margin exceeds the competitive range</span>
+                <span>D win probability 10% or lower</span>
               </li>
             </ul>
-            <p className="mt-3">
-              These labels are used for visualization and grouping. They do not directly
-              determine projected outcomes.
-            </p>
           </section>
 
           {/* Win Probability */}
           <section>
-            <h2 className="text-lg font-semibold text-slate-900 mb-3">Win Probability</h2>
+            <h2 className="text-lg font-semibold text-slate-900 mb-3">Win Probability Model</h2>
             <p>
-              The win probability slider controls how often Democrats win districts classified
-              as competitive or leaning. Safe seats are assigned fixed probabilities (95% for
-              Safe D, 5% for Safe R). Lean and competitive seats use the slider value, with
-              Lean R districts using the inverse. Projected seat totals are calculated by summing
-              win probabilities across all districts in a chamber.
+              We convert each district's adjusted Democratic margin into a win probability using
+              a logistic model calibrated on historical lower-house state legislative election
+              results. The calibration uses public Klarner/Princeton state legislative data for
+              single-member districts and excludes uncontested races and placeholder vote totals.
+              This produces a slope parameter of approximately k&nbsp;=&nbsp;12 when margin is
+              measured in decimals, generating probabilities that better match the uncertainty of
+              state legislative races than more aggressive assumptions would. The goal is a simple,
+              transparent, and defensible probability model rather than a black-box forecast.
             </p>
             <p className="mt-3">
-              This is the most explicitly subjective parameter in the model. We default it to 50%
-              (a coin flip in competitive districts), but users can adjust it to reflect different
-              assumptions about candidate quality, turnout dynamics, or other factors that might
-              systematically favor one party in close races.
+              Under this model, a district where Democrats lead by 5 points after the wave is
+              applied carries roughly a 73% win probability. A true toss-up (zero margin) is 50%.
+              A district where Republicans lead by 5 points gives Democrats about a 27% chance.
+              Any district with a win probability between 40% and 60% is labeled
+              "Competitive" on the map and in the district table.
+            </p>
+            <p className="mt-3">
+              Projected seat totals for each chamber are calculated by summing win probabilities
+              across all districts up for election, then adding holdover seats for staggered
+              senates. The result is rounded to the nearest whole seat.
             </p>
           </section>
 
