@@ -50,7 +50,6 @@ export function DistrictTable({ districts, chamberName, stateName }: Props) {
     return <span className="text-blue-500 ml-1">{sortDir === 'asc' ? '↑' : '↓'}</span>
   }
 
-  const pct = (v: number) => `${(v * 100).toFixed(1)}%`
   const marginDisplay = (v: number) => {
     const p = Math.round(v * 100)
     return p > 0 ? `D+${p}` : p < 0 ? `R+${Math.abs(p)}` : 'Even'
