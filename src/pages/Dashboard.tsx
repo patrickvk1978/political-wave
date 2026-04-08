@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Header } from '../components/layout/Header'
 import { ParameterBar } from '../components/layout/ParameterBar'
 import { SummaryStats } from '../components/overview/SummaryStats'
@@ -220,7 +220,9 @@ export function Dashboard() {
       <footer className="border-t border-slate-200 bg-white mt-auto">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 text-xs text-slate-400">
           <span>WaveWatch 2026 — Legislative Projection Model</span>
-          <span>Data reflects median partisan performance + applied wave scenario</span>
+          <Link to="/methodology" className="text-slate-400 hover:text-blue-600 transition-colors underline underline-offset-2">
+            Methodology
+          </Link>
         </div>
       </footer>
     </div>

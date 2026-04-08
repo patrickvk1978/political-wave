@@ -45,7 +45,7 @@ function yn(val: unknown): boolean {
   return String(val ?? '').trim().toUpperCase() === 'Y'
 }
 
-const INC_ADV = 0.025
+const INC_ADV = 0.02
 function incAdv(p: 'R' | 'D' | null) {
   return {
     dem_incumbency_adv: p === 'D' ? INC_ADV : 0,
@@ -74,17 +74,19 @@ function write(chamberId: string, data: DistrictRow[]) {
 async function fullModel(file: string, chamberId: string) {
   const data = (await rows(file))
     .filter(r => r.getCell(1).value != null)
-    .map(r => ({
-      chamber_id: chamberId,
-      district_number: String(r.getCell(1).value).replace(/^HD\s*/i, '').trim(),
-      incumbent_party: party(r.getCell(2).value),
-      is_open_seat: party(r.getCell(2).value) === null,
-      dem_median: n(r.getCell(3).value),
-      gop_median: n(r.getCell(4).value),
-      dem_incumbency_adv: n(r.getCell(5).value),
-      gop_incumbency_adv: n(r.getCell(6).value),
-      is_seat_up: true,
-    }))
+    .map(r => {
+      const p = party(r.getCell(2).value)
+      return {
+        chamber_id: chamberId,
+        district_number: String(r.getCell(1).value).replace(/^HD\s*/i, '').trim(),
+        incumbent_party: p,
+        is_open_seat: p === null,
+        dem_median: n(r.getCell(3).value),
+        gop_median: n(r.getCell(4).value),
+        ...incAdv(p),
+        is_seat_up: true,
+      }
+    })
   write(chamberId, data)
 }
 
