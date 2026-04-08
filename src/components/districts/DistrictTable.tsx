@@ -70,9 +70,6 @@ export function DistrictTable({ districts, chamberName, stateName }: Props) {
               <th className="px-3 py-2.5 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider whitespace-nowrap">
                 Baseline
               </th>
-              <th className="px-3 py-2.5 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider whitespace-nowrap">
-                Adjusted
-              </th>
               <Th onClick={() => handleSort('margin')}>
                 Margin <SortIcon col="margin" />
               </Th>
@@ -105,9 +102,6 @@ export function DistrictTable({ districts, chamberName, stateName }: Props) {
                   <td className="px-3 py-2.5 text-xs text-slate-500 tabular-nums">
                     {marginDisplay(baseMargin)}
                   </td>
-                  <td className="px-3 py-2.5 text-xs text-slate-700 tabular-nums font-medium">
-                    {marginDisplay(dp.margin)}
-                  </td>
                   <td className="px-3 py-2.5 text-xs tabular-nums">
                     <span className={dp.margin >= 0 ? 'text-blue-700' : 'text-red-600'}>
                       {marginDisplay(dp.margin)}
@@ -121,9 +115,6 @@ export function DistrictTable({ districts, chamberName, stateName }: Props) {
                   <td className="px-3 py-2.5">
                     <span className={`text-xs font-bold ${dp.projected_winner === 'D' ? 'text-blue-700' : 'text-red-600'}`}>
                       {dp.projected_winner}
-                    </span>
-                    <span className="text-xs text-slate-400 ml-1">
-                      ({pct(dp.win_probability)})
                     </span>
                   </td>
                 </tr>
