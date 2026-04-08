@@ -70,7 +70,9 @@ function write(chamberId: string, data: DistrictRow[]) {
 
 // ─── Importers ────────────────────────────────────────────────────────────────
 
-/** GA / TX: dist, party, dem_med, gop_med, dem_inc, gop_inc, ... */
+/** GA / TX: dist, party, dem_med, gop_med, dem_inc, gop_inc, ...
+ *  Incumbency read directly from file (blank = 0 = no bump intended by modeler),
+ *  capped at INC_ADV to stay consistent with other states. */
 async function fullModel(file: string, chamberId: string) {
   const data = (await rows(file))
     .filter(r => r.getCell(1).value != null)
@@ -83,7 +85,8 @@ async function fullModel(file: string, chamberId: string) {
         is_open_seat: p === null,
         dem_median: n(r.getCell(3).value),
         gop_median: n(r.getCell(4).value),
-        ...incAdv(p),
+        dem_incumbency_adv: Math.min(INC_ADV, n(r.getCell(5).value)),
+        gop_incumbency_adv: Math.min(INC_ADV, n(r.getCell(6).value)),
         is_seat_up: true,
       }
     })
