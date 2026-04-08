@@ -80,9 +80,6 @@ export function DistrictTable({ districts, chamberName, stateName }: Props) {
               <Th onClick={() => handleSort('classification')}>
                 Category <SortIcon col="classification" />
               </Th>
-              <th className="px-3 py-2.5 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                Projected
-              </th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-100">
@@ -114,11 +111,6 @@ export function DistrictTable({ districts, chamberName, stateName }: Props) {
                   <td className="px-3 py-2.5">
                     <span className={`text-[11px] font-medium px-1.5 py-0.5 rounded ${CLASS_STYLES[dp.classification]}`}>
                       {CLASSIFICATION_LABELS[dp.classification]}
-                    </span>
-                  </td>
-                  <td className="px-3 py-2.5">
-                    <span className={`text-xs font-bold ${dp.projected_winner === 'D' ? 'text-blue-700' : 'text-red-600'}`}>
-                      {dp.projected_winner}
                     </span>
                   </td>
                 </tr>

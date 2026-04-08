@@ -17,6 +17,7 @@ const MARKERS = [
 
 export function ParameterBar({ params, onChange }: ParameterBarProps) {
   const pct = (v: number) => `${Math.round(v * 100)}%`
+  const progress = (params.wave / MAX) * 100
 
   return (
     <div className="sticky top-0 z-10 bg-white border-b border-slate-200 shadow-sm">
@@ -70,7 +71,8 @@ export function ParameterBar({ params, onChange }: ParameterBarProps) {
             step={0.01}
             value={params.wave}
             onChange={e => onChange({ wave: parseFloat(e.target.value) })}
-            className="w-full h-1.5 rounded-full appearance-none cursor-pointer accent-blue-600 relative"
+            style={{ ['--wave-progress' as string]: `${progress}%` }}
+            className="wave-slider relative w-full cursor-pointer"
           />
         </div>
 
