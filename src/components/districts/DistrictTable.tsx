@@ -31,7 +31,12 @@ export function DistrictTable({ districts, chamberName, stateName }: Props) {
   const sorted = [...districts].sort((a, b) => {
     let av: string | number, bv: string | number
     switch (sortKey) {
-      case 'district_number': av = a.district.district_number; bv = b.district.district_number; break
+      case 'district_number': {
+        const an = parseInt(a.district.district_number), bn = parseInt(b.district.district_number)
+        av = isNaN(an) ? a.district.district_number : an
+        bv = isNaN(bn) ? b.district.district_number : bn
+        break
+      }
       case 'margin': av = a.margin; bv = b.margin; break
       case 'classification': av = a.classification; bv = b.classification; break
       case 'incumbent_party': av = a.district.incumbent_party ?? ''; bv = b.district.incumbent_party ?? ''; break
