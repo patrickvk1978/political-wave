@@ -17,33 +17,35 @@ const MARKERS = [
 
 function WaveFill({ progress }: { progress: number }) {
   const normalized = Math.max(0, Math.min(progress / 100, 1))
-  const crestY = 23 - normalized * 13
-  const innerY = crestY + 3
+  const crestY = 48 - normalized * 34
+  const shoulderY = 24 + normalized * 5
+  const taperY = 52 - normalized * 10
+  const innerStartY = 54 - normalized * 18
+  const innerEndY = 60 - normalized * 4
 
   const areaPath = [
-    `M 0 32`,
+    `M 0 60`,
     `L 0 ${crestY}`,
-    `C 8 ${crestY - 2.5} 15 ${crestY + 2.5} 24 ${crestY}`,
-    `S 40 ${crestY - 2.5} 50 ${crestY}`,
-    `S 66 ${crestY + 2.5} 76 ${crestY}`,
-    `S 92 ${crestY - 2.5} 100 ${crestY + 0.5}`,
-    `L 100 32 Z`,
+    `C 4 ${crestY - 4} 10 ${crestY - 5} 14 ${shoulderY}`,
+    `C 22 ${shoulderY + 2} 42 ${shoulderY + 8} 66 ${taperY}`,
+    `C 78 ${taperY + 6} 90 58 100 60`,
+    `L 0 60 Z`,
   ].join(' ')
 
   const linePath = [
-    `M 0 ${innerY}`,
-    `C 7 ${innerY - 3} 13 ${innerY + 3} 20 ${innerY}`,
-    `S 33 ${innerY - 3} 40 ${innerY}`,
-    `S 53 ${innerY + 3} 60 ${innerY}`,
-    `S 73 ${innerY - 3} 80 ${innerY}`,
-    `S 93 ${innerY + 3} 100 ${innerY}`,
+    `M 10 ${innerStartY}`,
+    `C 16 ${innerStartY - 6} 20 ${innerStartY + 5} 26 ${innerStartY - 1}`,
+    `S 36 ${innerStartY + 10} 42 ${innerStartY + 4}`,
+    `S 54 ${innerStartY + 16} 60 ${innerStartY + 10}`,
+    `S 72 ${innerEndY - 1} 78 ${innerEndY - 4}`,
+    `S 90 ${innerEndY + 2} 96 ${innerEndY}`,
   ].join(' ')
 
   return (
-    <div className="wave-fill-shell absolute inset-0 overflow-hidden rounded-full pointer-events-none">
+    <div className="wave-fill-shell absolute inset-x-0 top-0 bottom-0 overflow-visible pointer-events-none">
       <div className="wave-fill-clip h-full" style={{ width: `${progress}%` }}>
         <svg
-          viewBox="0 0 100 32"
+          viewBox="0 0 100 60"
           preserveAspectRatio="none"
           className="wave-fill-svg h-full w-full min-w-full"
           aria-hidden="true"
@@ -72,7 +74,7 @@ export function ParameterBar({ params, onChange }: ParameterBarProps) {
         </div>
 
         {/* Markers above track */}
-        <div className="relative hidden sm:block h-5 mb-0.5">
+        <div className="relative hidden sm:block h-8 mb-1">
           {MARKERS.filter(m => m.row === 'above').map(m => {
             const left = (m.value / MAX) * 100
             return (
@@ -89,9 +91,9 @@ export function ParameterBar({ params, onChange }: ParameterBarProps) {
         </div>
 
         {/* Slider track with tick marks */}
-        <div className="relative pt-1">
+        <div className="relative">
           {/* Tick marks */}
-          <div className="absolute inset-0 pointer-events-none hidden sm:block">
+          <div className="absolute inset-x-0 bottom-3 h-5 pointer-events-none hidden sm:block">
             {MARKERS.map(m => {
               const left = (m.value / MAX) * 100
               return (
@@ -100,15 +102,15 @@ export function ParameterBar({ params, onChange }: ParameterBarProps) {
                   className="absolute top-0 bottom-0 flex items-center"
                   style={{ left: `${left}%` }}
                 >
-                  <div className="w-px h-3 bg-slate-300" />
+                  <div className="w-px h-5 bg-slate-300/80" />
                 </div>
               )
             })}
           </div>
 
-          <div className="relative h-10 flex items-center">
-            <div className="wave-slider-track absolute inset-x-0 top-1/2 -translate-y-1/2 h-5 rounded-full" />
+          <div className="relative h-18 sm:h-20">
             <WaveFill progress={progress} />
+            <div className="wave-slider-track absolute inset-x-0 bottom-3 h-5 rounded-full" />
             <input
               type="range"
               min={0}
@@ -116,7 +118,7 @@ export function ParameterBar({ params, onChange }: ParameterBarProps) {
               step={0.01}
               value={params.wave}
               onChange={e => onChange({ wave: parseFloat(e.target.value) })}
-              className="wave-slider relative z-10 w-full cursor-pointer"
+              className="wave-slider absolute inset-x-0 bottom-3 z-10 w-full cursor-pointer"
             />
           </div>
         </div>
