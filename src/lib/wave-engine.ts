@@ -99,6 +99,15 @@ export function projectChamber(
   const projected_r = Math.round(holdover_r + expected_r_wins)
 
   const net_pickups = projected_d - chamber.current_d_seats
+
+  // Definite flips: seats where the projected winner differs from the current holder
+  const definite_r_to_d = seats_up.filter(
+    p => p.district.incumbent_party === 'R' && p.projected_winner === 'D'
+  ).length
+  const definite_d_to_r = seats_up.filter(
+    p => p.district.incumbent_party === 'D' && p.projected_winner === 'R'
+  ).length
+
   const seats_to_flip = chamber.majority_threshold - projected_d
   const flipped = projected_d >= chamber.majority_threshold
 
@@ -124,6 +133,8 @@ export function projectChamber(
     projected_d,
     projected_r,
     net_pickups,
+    definite_r_to_d,
+    definite_d_to_r,
     seats_to_flip,
     flipped,
     flip_category,

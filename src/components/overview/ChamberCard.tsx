@@ -90,10 +90,26 @@ export function ChamberCard({ projection, onClick }: Props) {
             <span className="font-semibold text-slate-700">{projection.leaning_d_count}</span> lean D
           </span>
         </div>
-        <div className={`text-sm font-bold tabular-nums ${
-          projection.net_pickups > 0 ? 'text-blue-700' : projection.net_pickups < 0 ? 'text-red-600' : 'text-slate-500'
-        }`}>
-          {pickupDisplay} seats
+        <div className="flex flex-col items-end gap-0.5">
+          <div className={`text-sm font-bold tabular-nums ${
+            projection.net_pickups > 0 ? 'text-blue-700' : projection.net_pickups < 0 ? 'text-red-600' : 'text-slate-500'
+          }`}>
+            {pickupDisplay} exp
+          </div>
+          {(projection.definite_r_to_d > 0 || projection.definite_d_to_r > 0) && (
+            <div className="text-[10px] text-slate-400 tabular-nums">
+              {projection.definite_r_to_d > 0 && (
+                <span className="text-blue-500">+{projection.definite_r_to_d}</span>
+              )}
+              {projection.definite_r_to_d > 0 && projection.definite_d_to_r > 0 && (
+                <span className="mx-0.5">/</span>
+              )}
+              {projection.definite_d_to_r > 0 && (
+                <span className="text-red-400">−{projection.definite_d_to_r}</span>
+              )}
+              <span className="ml-0.5">flips</span>
+            </div>
+          )}
         </div>
       </div>
     </div>

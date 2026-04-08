@@ -58,7 +58,9 @@ export interface ChamberProjection {
   current_r: number
   projected_d: number
   projected_r: number
-  net_pickups: number        // positive = D gains
+  net_pickups: number        // positive = D gains (expected value)
+  definite_r_to_d: number   // R-held seats where projected_winner = D
+  definite_d_to_r: number   // D-held seats where projected_winner = R
   seats_to_flip: number      // how many more D needs for majority
   flipped: boolean
   flip_category: 'highly-contested' | 'within-reach' | 'long-shot'
