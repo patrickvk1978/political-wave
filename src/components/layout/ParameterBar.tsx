@@ -13,7 +13,7 @@ interface SliderProps {
 
 function Slider({ label, value, min, max, step, format, onChange }: SliderProps) {
   return (
-    <div className="flex flex-col gap-1 min-w-[160px]">
+    <div className="flex flex-col gap-1 w-full sm:w-auto sm:min-w-[160px] flex-1">
       <div className="flex justify-between items-baseline">
         <span className="text-xs font-medium text-slate-500 uppercase tracking-wider">{label}</span>
         <span className="text-sm font-bold text-slate-800 tabular-nums">{format(value)}</span>
@@ -50,7 +50,7 @@ export function ParameterBar({ params, onChange }: ParameterBarProps) {
     return (
       <div className="sticky top-0 z-10 bg-white border-b border-slate-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
-          <div className="flex gap-6 text-sm text-slate-600">
+          <div className="flex flex-wrap gap-3 sm:gap-6 text-sm text-slate-600">
             <span>Wave <strong className="text-blue-700">{pct(params.wave)}</strong></span>
             <span>Win Prob <strong className="text-blue-700">{pct(params.win_probability)}</strong></span>
             {showAdvanced && (
@@ -72,7 +72,7 @@ export function ParameterBar({ params, onChange }: ParameterBarProps) {
   return (
     <div className="sticky top-0 z-10 bg-white border-b border-slate-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-6 py-4">
-        <div className="flex items-end gap-8 flex-wrap">
+        <div className="flex flex-col sm:flex-row sm:items-end gap-4 sm:gap-8 sm:flex-wrap">
           {/* Wave % */}
           <Slider
             label="Wave %"
@@ -109,7 +109,7 @@ export function ParameterBar({ params, onChange }: ParameterBarProps) {
           )}
 
           {/* Controls */}
-          <div className="flex items-end gap-3 ml-auto pb-0.5">
+          <div className="flex items-center gap-3 sm:ml-auto pb-0.5">
             <button
               onClick={() => setShowAdvanced(v => !v)}
               className="text-xs text-slate-400 hover:text-blue-600 flex items-center gap-1 transition-colors"

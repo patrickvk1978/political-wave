@@ -70,7 +70,7 @@ export function Dashboard() {
       />
       <ParameterBar params={params} onChange={setParams} />
 
-      <main className="flex-1 max-w-7xl mx-auto w-full px-6 py-6">
+      <main className="flex-1 max-w-7xl mx-auto w-full px-3 sm:px-6 py-4 sm:py-6">
         {/* Top-level tabs */}
         <div className="flex items-center gap-1 mb-6 border-b border-slate-200">
           {(['overview', 'districts'] as Tab[]).map(tab => (
@@ -218,7 +218,7 @@ export function Dashboard() {
       </main>
 
       <footer className="border-t border-slate-200 bg-white mt-auto">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between text-xs text-slate-400">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 text-xs text-slate-400">
           <span>WaveWatch 2026 — Legislative Projection Model</span>
           <span>Data reflects median partisan performance + applied wave scenario</span>
         </div>
