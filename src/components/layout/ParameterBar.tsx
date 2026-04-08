@@ -15,6 +15,48 @@ const MARKERS = [
   { value: 0.185, pctLabel: '18.5%', desc: 'Federal special avg', row: 'below' as const },
 ]
 
+function WaveFill({ progress }: { progress: number }) {
+  const normalized = Math.max(0, Math.min(progress / 100, 1))
+  const crestY = 23 - normalized * 13
+  const innerY = crestY + 3
+
+  const areaPath = [
+    `M 0 32`,
+    `L 0 ${crestY}`,
+    `C 8 ${crestY - 2.5} 15 ${crestY + 2.5} 24 ${crestY}`,
+    `S 40 ${crestY - 2.5} 50 ${crestY}`,
+    `S 66 ${crestY + 2.5} 76 ${crestY}`,
+    `S 92 ${crestY - 2.5} 100 ${crestY + 0.5}`,
+    `L 100 32 Z`,
+  ].join(' ')
+
+  const linePath = [
+    `M 0 ${innerY}`,
+    `C 7 ${innerY - 3} 13 ${innerY + 3} 20 ${innerY}`,
+    `S 33 ${innerY - 3} 40 ${innerY}`,
+    `S 53 ${innerY + 3} 60 ${innerY}`,
+    `S 73 ${innerY - 3} 80 ${innerY}`,
+    `S 93 ${innerY + 3} 100 ${innerY}`,
+  ].join(' ')
+
+  return (
+    <div className="wave-fill-shell absolute inset-0 overflow-hidden rounded-full pointer-events-none">
+      <div className="wave-fill-clip h-full" style={{ width: `${progress}%` }}>
+        <svg
+          viewBox="0 0 100 32"
+          preserveAspectRatio="none"
+          className="wave-fill-svg h-full w-full min-w-full"
+          aria-hidden="true"
+        >
+          <path d={areaPath} className="wave-fill-area" />
+          <path d={linePath} className="wave-fill-line wave-fill-line-a" />
+          <path d={linePath} className="wave-fill-line wave-fill-line-b" />
+        </svg>
+      </div>
+    </div>
+  )
+}
+
 export function ParameterBar({ params, onChange }: ParameterBarProps) {
   const pct = (v: number) => `${Math.round(v * 100)}%`
   const progress = (params.wave / MAX) * 100
@@ -47,7 +89,7 @@ export function ParameterBar({ params, onChange }: ParameterBarProps) {
         </div>
 
         {/* Slider track with tick marks */}
-        <div className="relative">
+        <div className="relative pt-1">
           {/* Tick marks */}
           <div className="absolute inset-0 pointer-events-none hidden sm:block">
             {MARKERS.map(m => {
@@ -64,16 +106,19 @@ export function ParameterBar({ params, onChange }: ParameterBarProps) {
             })}
           </div>
 
-          <input
-            type="range"
-            min={0}
-            max={MAX}
-            step={0.01}
-            value={params.wave}
-            onChange={e => onChange({ wave: parseFloat(e.target.value) })}
-            style={{ ['--wave-progress' as string]: `${progress}%` }}
-            className="wave-slider relative w-full cursor-pointer"
-          />
+          <div className="relative h-10 flex items-center">
+            <div className="wave-slider-track absolute inset-x-0 top-1/2 -translate-y-1/2 h-5 rounded-full" />
+            <WaveFill progress={progress} />
+            <input
+              type="range"
+              min={0}
+              max={MAX}
+              step={0.01}
+              value={params.wave}
+              onChange={e => onChange({ wave: parseFloat(e.target.value) })}
+              className="wave-slider relative z-10 w-full cursor-pointer"
+            />
+          </div>
         </div>
 
         {/* Markers below track */}

@@ -12,17 +12,9 @@ body {
 }
 
 .wave-slider {
-  height: 12px;
+  height: 40px;
   appearance: none;
-  border-radius: 9999px;
-  background: linear-gradient(
-    to right,
-    #2563eb 0%,
-    #2563eb var(--wave-progress),
-    #cbd5e1 var(--wave-progress),
-    #cbd5e1 100%
-  );
-  box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.35);
+  background: transparent;
 }
 
 .wave-slider:focus {
@@ -31,8 +23,53 @@ body {
 
 .wave-slider:focus-visible {
   box-shadow:
-    inset 0 0 0 1px rgba(148, 163, 184, 0.35),
-    0 0 0 4px rgba(37, 99, 235, 0.16);
+    0 0 0 4px rgba(37, 99, 235, 0.12);
+  border-radius: 9999px;
+}
+
+.wave-slider-track {
+  background: linear-gradient(180deg, #dbeafe 0%, #bfd3eb 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(148, 163, 184, 0.45),
+    inset 0 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+.wave-fill-shell {
+  top: 50%;
+  height: 20px;
+  transform: translateY(-50%);
+}
+
+.wave-fill-clip {
+  max-width: 100%;
+  transition: width 140ms ease-out;
+}
+
+.wave-fill-svg {
+  overflow: visible;
+}
+
+.wave-fill-area {
+  fill: rgba(125, 211, 252, 0.62);
+}
+
+.wave-fill-line {
+  fill: none;
+  stroke: rgba(56, 189, 248, 0.75);
+  stroke-linecap: round;
+}
+
+.wave-fill-line-a {
+  stroke-width: 1.45;
+  stroke-dasharray: 7 5;
+  animation: wave-drift-a 9s linear infinite;
+}
+
+.wave-fill-line-b {
+  stroke-width: 1.1;
+  stroke: rgba(255, 255, 255, 0.55);
+  stroke-dasharray: 5 6;
+  animation: wave-drift-b 11s linear infinite;
 }
 
 .wave-slider::-webkit-slider-thumb {
@@ -46,17 +83,16 @@ body {
 }
 
 .wave-slider::-moz-range-track {
-  height: 12px;
+  height: 20px;
   border: none;
   border-radius: 9999px;
-  background: #cbd5e1;
-  box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.35);
+  background: transparent;
 }
 
 .wave-slider::-moz-range-progress {
-  height: 12px;
-  border-radius: 9999px;
-  background: #2563eb;
+  height: 20px;
+  border-radius: 9999px 0 0 9999px;
+  background: transparent;
 }
 
 .wave-slider::-moz-range-thumb {
@@ -66,6 +102,24 @@ body {
   background: #ffffff;
   border: 3px solid #2563eb;
   box-shadow: 0 2px 8px rgba(37, 99, 235, 0.28);
+}
+
+@keyframes wave-drift-a {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -72;
+  }
+}
+
+@keyframes wave-drift-b {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 54;
+  }
 }
 
 /* ─── Leaflet map tooltip styles ─────────────────────────────────────────── */
