@@ -45,6 +45,14 @@ function yn(val: unknown): boolean {
   return String(val ?? '').trim().toUpperCase() === 'Y'
 }
 
+const INC_ADV = 0.025
+function incAdv(p: 'R' | 'D' | null) {
+  return {
+    dem_incumbency_adv: p === 'D' ? INC_ADV : 0,
+    gop_incumbency_adv: p === 'R' ? INC_ADV : 0,
+  }
+}
+
 async function rows(file: string, sheetIdx = 0): Promise<ExcelJS.Row[]> {
   const wb = new ExcelJS.Workbook()
   await wb.xlsx.readFile(path.join(DATA_DIR, file))
@@ -91,8 +99,7 @@ async function withUpFlag(file: string, chamberId: string, sheetIdx = 0) {
       is_open_seat: party(r.getCell(2).value) === null,
       dem_median: n(r.getCell(4).value),
       gop_median: n(r.getCell(5).value),
-      dem_incumbency_adv: 0,
-      gop_incumbency_adv: 0,
+      ...incAdv(party(r.getCell(2).value)),
       is_seat_up: yn(r.getCell(3).value),
     }))
   write(chamberId, data)
@@ -109,8 +116,7 @@ async function simple(file: string, chamberId: string, demCol: number, gopCol: n
       is_open_seat: party(r.getCell(partyCol).value) === null,
       dem_median: n(r.getCell(demCol).value),
       gop_median: n(r.getCell(gopCol).value),
-      dem_incumbency_adv: 0,
-      gop_incumbency_adv: 0,
+      ...incAdv(party(r.getCell(partyCol).value)),
       is_seat_up: true,
     }))
   write(chamberId, data)
@@ -121,6 +127,7 @@ async function michigan(file: string, chamberId: string) {
   const data = (await rows(file))
     .filter(r => r.getCell(1).value != null)
     .map(r => {
+      const p      = party(r.getCell(2).value)
       const demGov  = n(r.getCell(5).value)
       const gopGov  = n(r.getCell(6).value)
       const demPres = n(r.getCell(7).value)
@@ -128,12 +135,11 @@ async function michigan(file: string, chamberId: string) {
       return {
         chamber_id: chamberId,
         district_number: String(r.getCell(1).value).trim(),
-        incumbent_party: party(r.getCell(2).value),
-        is_open_seat: party(r.getCell(2).value) === null,
+        incumbent_party: p,
+        is_open_seat: p === null,
         dem_median: (demGov + demPres) / 2,
         gop_median: (gopGov + gopPres) / 2,
-        dem_incumbency_adv: 0,
-        gop_incumbency_adv: 0,
+        ...incAdv(p),
         is_seat_up: true,
       }
     })
@@ -156,8 +162,7 @@ async function nebraska(file: string, chamberId: string) {
         is_open_seat: false,
         dem_median: (demP24 + demP20) / 2,
         gop_median: (gopP24 + gopP20) / 2,
-        dem_incumbency_adv: 0,
-        gop_incumbency_adv: 0,
+        ...incAdv(null),   // NE nonpartisan — set manually in JSON
         is_seat_up: true,
       }
     })
@@ -175,19 +180,21 @@ async function mnHouse(file: string, chamberId: string) {
       const distNum = match
         ? String((parseInt(match[1]) * 2) - (match[2].toUpperCase() === 'A' ? 1 : 0))
         : raw
+      const p      = party(r.getCell(2).value)
       const demP24 = n(r.getCell(4).value)
       const gopP24 = n(r.getCell(5).value)
       const demG22 = n(r.getCell(6).value)
       const gopG22 = n(r.getCell(7).value)
+      const demP20 = n(r.getCell(8).value)
+      const gopP20 = n(r.getCell(9).value)
       return {
         chamber_id: chamberId,
         district_number: distNum,
-        incumbent_party: party(r.getCell(2).value),
-        is_open_seat: party(r.getCell(2).value) === null,
-        dem_median: (demP24 + demG22) / 2,
-        gop_median: (gopP24 + gopG22) / 2,
-        dem_incumbency_adv: 0,
-        gop_incumbency_adv: 0,
+        incumbent_party: p,
+        is_open_seat: p === null,
+        dem_median: (demP24 + demG22 + demP20) / 3,
+        gop_median: (gopP24 + gopG22 + gopP20) / 3,
+        ...incAdv(p),
         is_seat_up: true,
       }
     })
@@ -199,6 +206,7 @@ async function miHouse(file: string, chamberId: string) {
   const data = (await rows(file, 1))
     .filter(r => r.getCell(1).value != null)
     .map(r => {
+      const p       = party(r.getCell(2).value)
       const demGov  = n(r.getCell(4).value)
       const gopGov  = n(r.getCell(5).value)
       const demPres = n(r.getCell(6).value)
@@ -206,12 +214,11 @@ async function miHouse(file: string, chamberId: string) {
       return {
         chamber_id: chamberId,
         district_number: String(r.getCell(1).value).trim(),
-        incumbent_party: party(r.getCell(2).value),
-        is_open_seat: party(r.getCell(2).value) === null,
+        incumbent_party: p,
+        is_open_seat: p === null,
         dem_median: (demGov + demPres) / 2,
         gop_median: (gopGov + gopPres) / 2,
-        dem_incumbency_adv: 0,
-        gop_incumbency_adv: 0,
+        ...incAdv(p),
         is_seat_up: true,
       }
     })

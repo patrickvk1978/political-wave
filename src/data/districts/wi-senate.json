@@ -7,7 +7,7 @@
     "dem_median": 0.3923,
     "gop_median": 0.58735,
     "dem_incumbency_adv": 0,
-    "gop_incumbency_adv": 0,
+    "gop_incumbency_adv": 0.025,
     "is_seat_up": true
   },
   {
@@ -18,7 +18,7 @@
     "dem_median": 0.3601,
     "gop_median": 0.6195999999999999,
     "dem_incumbency_adv": 0,
-    "gop_incumbency_adv": 0,
+    "gop_incumbency_adv": 0.025,
     "is_seat_up": false
   },
   {
@@ -28,7 +28,7 @@
     "is_open_seat": false,
     "dem_median": 0.6602,
     "gop_median": 0.31495,
-    "dem_incumbency_adv": 0,
+    "dem_incumbency_adv": 0.025,
     "gop_incumbency_adv": 0,
     "is_seat_up": true
   },
@@ -39,7 +39,7 @@
     "is_open_seat": false,
     "dem_median": 0.8348,
     "gop_median": 0.14775,
-    "dem_incumbency_adv": 0,
+    "dem_incumbency_adv": 0.025,
     "gop_incumbency_adv": 0,
     "is_seat_up": false
   },
@@ -51,7 +51,7 @@
     "dem_median": 0.5188,
     "gop_median": 0.4653,
     "dem_incumbency_adv": 0,
-    "gop_incumbency_adv": 0,
+    "gop_incumbency_adv": 0.025,
     "is_seat_up": true
   },
   {
@@ -61,7 +61,7 @@
     "is_open_seat": false,
     "dem_median": 0.8479,
     "gop_median": 0.1319,
-    "dem_incumbency_adv": 0,
+    "dem_incumbency_adv": 0.025,
     "gop_incumbency_adv": 0,
     "is_seat_up": false
   },
@@ -72,7 +72,7 @@
     "is_open_seat": false,
     "dem_median": 0.6319,
     "gop_median": 0.33175,
-    "dem_incumbency_adv": 0,
+    "dem_incumbency_adv": 0.025,
     "gop_incumbency_adv": 0,
     "is_seat_up": true
   },
@@ -83,7 +83,7 @@
     "is_open_seat": false,
     "dem_median": 0.5037,
     "gop_median": 0.4859,
-    "dem_incumbency_adv": 0,
+    "dem_incumbency_adv": 0.025,
     "gop_incumbency_adv": 0,
     "is_seat_up": false
   },
@@ -95,7 +95,7 @@
     "dem_median": 0.415,
     "gop_median": 0.56515,
     "dem_incumbency_adv": 0,
-    "gop_incumbency_adv": 0,
+    "gop_incumbency_adv": 0.025,
     "is_seat_up": true
   },
   {
@@ -106,7 +106,7 @@
     "dem_median": 0.4033,
     "gop_median": 0.5699000000000001,
     "dem_incumbency_adv": 0,
-    "gop_incumbency_adv": 0,
+    "gop_incumbency_adv": 0.025,
     "is_seat_up": false
   },
   {
@@ -117,7 +117,7 @@
     "dem_median": 0.3635,
     "gop_median": 0.61745,
     "dem_incumbency_adv": 0,
-    "gop_incumbency_adv": 0,
+    "gop_incumbency_adv": 0.025,
     "is_seat_up": true
   },
   {
@@ -128,7 +128,7 @@
     "dem_median": 0.3598,
     "gop_median": 0.62415,
     "dem_incumbency_adv": 0,
-    "gop_incumbency_adv": 0,
+    "gop_incumbency_adv": 0.025,
     "is_seat_up": false
   },
   {
@@ -139,7 +139,7 @@
     "dem_median": 0.3475,
     "gop_median": 0.63635,
     "dem_incumbency_adv": 0,
-    "gop_incumbency_adv": 0,
+    "gop_incumbency_adv": 0.025,
     "is_seat_up": true
   },
   {
@@ -149,7 +149,7 @@
     "is_open_seat": false,
     "dem_median": 0.5115,
     "gop_median": 0.45825,
-    "dem_incumbency_adv": 0,
+    "dem_incumbency_adv": 0.025,
     "gop_incumbency_adv": 0,
     "is_seat_up": false
   },
@@ -160,7 +160,7 @@
     "is_open_seat": false,
     "dem_median": 0.5495,
     "gop_median": 0.41935,
-    "dem_incumbency_adv": 0,
+    "dem_incumbency_adv": 0.025,
     "gop_incumbency_adv": 0,
     "is_seat_up": true
   },
@@ -171,7 +171,7 @@
     "is_open_seat": false,
     "dem_median": 0.6403,
     "gop_median": 0.3304,
-    "dem_incumbency_adv": 0,
+    "dem_incumbency_adv": 0.025,
     "gop_incumbency_adv": 0,
     "is_seat_up": false
   },
@@ -183,7 +183,7 @@
     "dem_median": 0.5171,
     "gop_median": 0.45015000000000005,
     "dem_incumbency_adv": 0,
-    "gop_incumbency_adv": 0,
+    "gop_incumbency_adv": 0.025,
     "is_seat_up": true
   },
   {
@@ -193,7 +193,7 @@
     "is_open_seat": false,
     "dem_median": 0.5352,
     "gop_median": 0.43684999999999996,
-    "dem_incumbency_adv": 0,
+    "dem_incumbency_adv": 0.025,
     "gop_incumbency_adv": 0,
     "is_seat_up": false
   },
@@ -205,7 +205,7 @@
     "dem_median": 0.3661,
     "gop_median": 0.6144000000000001,
     "dem_incumbency_adv": 0,
-    "gop_incumbency_adv": 0,
+    "gop_incumbency_adv": 0.025,
     "is_seat_up": true
   },
   {
@@ -216,7 +216,7 @@
     "dem_median": 0.3189,
     "gop_median": 0.6691,
     "dem_incumbency_adv": 0,
-    "gop_incumbency_adv": 0,
+    "gop_incumbency_adv": 0.025,
     "is_seat_up": false
   },
   {
@@ -227,7 +227,7 @@
     "dem_median": 0.5038,
     "gop_median": 0.47940000000000005,
     "dem_incumbency_adv": 0,
-    "gop_incumbency_adv": 0,
+    "gop_incumbency_adv": 0.025,
     "is_seat_up": true
   },
   {
@@ -237,7 +237,7 @@
     "is_open_seat": false,
     "dem_median": 0.5424,
     "gop_median": 0.43605,
-    "dem_incumbency_adv": 0,
+    "dem_incumbency_adv": 0.025,
     "gop_incumbency_adv": 0,
     "is_seat_up": false
   },
@@ -249,7 +249,7 @@
     "dem_median": 0.3248,
     "gop_median": 0.65055,
     "dem_incumbency_adv": 0,
-    "gop_incumbency_adv": 0,
+    "gop_incumbency_adv": 0.025,
     "is_seat_up": true
   },
   {
@@ -260,7 +260,7 @@
     "dem_median": 0.4333,
     "gop_median": 0.5368,
     "dem_incumbency_adv": 0,
-    "gop_incumbency_adv": 0,
+    "gop_incumbency_adv": 0.025,
     "is_seat_up": false
   },
   {
@@ -271,7 +271,7 @@
     "dem_median": 0.4446,
     "gop_median": 0.5325,
     "dem_incumbency_adv": 0,
-    "gop_incumbency_adv": 0,
+    "gop_incumbency_adv": 0.025,
     "is_seat_up": true
   },
   {
@@ -281,7 +281,7 @@
     "is_open_seat": false,
     "dem_median": 0.8514,
     "gop_median": 0.124,
-    "dem_incumbency_adv": 0,
+    "dem_incumbency_adv": 0.025,
     "gop_incumbency_adv": 0,
     "is_seat_up": false
   },
@@ -292,7 +292,7 @@
     "is_open_seat": false,
     "dem_median": 0.7543,
     "gop_median": 0.21839999999999998,
-    "dem_incumbency_adv": 0,
+    "dem_incumbency_adv": 0.025,
     "gop_incumbency_adv": 0,
     "is_seat_up": true
   },
@@ -304,7 +304,7 @@
     "dem_median": 0.3822,
     "gop_median": 0.6039,
     "dem_incumbency_adv": 0,
-    "gop_incumbency_adv": 0,
+    "gop_incumbency_adv": 0.025,
     "is_seat_up": false
   },
   {
@@ -315,7 +315,7 @@
     "dem_median": 0.4005,
     "gop_median": 0.5799,
     "dem_incumbency_adv": 0,
-    "gop_incumbency_adv": 0,
+    "gop_incumbency_adv": 0.025,
     "is_seat_up": true
   },
   {
@@ -325,7 +325,7 @@
     "is_open_seat": false,
     "dem_median": 0.5098,
     "gop_median": 0.4655,
-    "dem_incumbency_adv": 0,
+    "dem_incumbency_adv": 0.025,
     "gop_incumbency_adv": 0,
     "is_seat_up": false
   },
@@ -336,7 +336,7 @@
     "is_open_seat": false,
     "dem_median": 0.506,
     "gop_median": 0.4601,
-    "dem_incumbency_adv": 0,
+    "dem_incumbency_adv": 0.025,
     "gop_incumbency_adv": 0,
     "is_seat_up": true
   },
@@ -347,7 +347,7 @@
     "is_open_seat": false,
     "dem_median": 0.5217,
     "gop_median": 0.4494,
-    "dem_incumbency_adv": 0,
+    "dem_incumbency_adv": 0.025,
     "gop_incumbency_adv": 0,
     "is_seat_up": false
   },
@@ -359,7 +359,7 @@
     "dem_median": 0.3245,
     "gop_median": 0.66585,
     "dem_incumbency_adv": 0,
-    "gop_incumbency_adv": 0,
+    "gop_incumbency_adv": 0.025,
     "is_seat_up": true
   }
 ]
