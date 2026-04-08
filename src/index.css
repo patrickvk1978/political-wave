@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+}
+
+/* ─── Leaflet map tooltip styles ─────────────────────────────────────────── */
+.wave-tooltip .leaflet-tooltip-content {
+  margin: 0;
+  padding: 0;
+}
+.leaflet-tooltip.wave-tooltip {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+.wave-tip {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  min-width: 140px;
+}
+.wave-tip-title {
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+.wave-tip-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #64748b;
+  margin-top: 2px;
+}
+.wave-tip-row strong {
+  color: #1e293b;
+}

@@ -1,0 +1,222 @@
+[
+  {
+    "chamber_id": "ak-senate",
+    "district_number": "A",
+    "incumbent_party": "R",
+    "is_open_seat": false,
+    "dem_median": 0.456,
+    "gop_median": 0.5071,
+    "dem_incumbency_adv": 0,
+    "gop_incumbency_adv": 0,
+    "is_seat_up": true
+  },
+  {
+    "chamber_id": "ak-senate",
+    "district_number": "B",
+    "incumbent_party": "D",
+    "is_open_seat": false,
+    "dem_median": 0.6138,
+    "gop_median": 0.35,
+    "dem_incumbency_adv": 0,
+    "gop_incumbency_adv": 0,
+    "is_seat_up": false
+  },
+  {
+    "chamber_id": "ak-senate",
+    "district_number": "C",
+    "incumbent_party": "R",
+    "is_open_seat": false,
+    "dem_median": 0.4232,
+    "gop_median": 0.5402,
+    "dem_incumbency_adv": 0,
+    "gop_incumbency_adv": 0,
+    "is_seat_up": true
+  },
+  {
+    "chamber_id": "ak-senate",
+    "district_number": "D",
+    "incumbent_party": "R",
+    "is_open_seat": false,
+    "dem_median": 0.2507,
+    "gop_median": 0.717,
+    "dem_incumbency_adv": 0,
+    "gop_incumbency_adv": 0,
+    "is_seat_up": false
+  },
+  {
+    "chamber_id": "ak-senate",
+    "district_number": "E",
+    "incumbent_party": "R",
+    "is_open_seat": false,
+    "dem_median": 0.4802,
+    "gop_median": 0.48,
+    "dem_incumbency_adv": 0,
+    "gop_incumbency_adv": 0,
+    "is_seat_up": true
+  },
+  {
+    "chamber_id": "ak-senate",
+    "district_number": "F",
+    "incumbent_party": "R",
+    "is_open_seat": false,
+    "dem_median": 0.48,
+    "gop_median": 0.49,
+    "dem_incumbency_adv": 0,
+    "gop_incumbency_adv": 0,
+    "is_seat_up": false
+  },
+  {
+    "chamber_id": "ak-senate",
+    "district_number": "G",
+    "incumbent_party": "D",
+    "is_open_seat": false,
+    "dem_median": 0.54,
+    "gop_median": 0.42,
+    "dem_incumbency_adv": 0,
+    "gop_incumbency_adv": 0,
+    "is_seat_up": true
+  },
+  {
+    "chamber_id": "ak-senate",
+    "district_number": "H",
+    "incumbent_party": "D",
+    "is_open_seat": false,
+    "dem_median": 0.5181,
+    "gop_median": 0.4495,
+    "dem_incumbency_adv": 0,
+    "gop_incumbency_adv": 0,
+    "is_seat_up": false
+  },
+  {
+    "chamber_id": "ak-senate",
+    "district_number": "I",
+    "incumbent_party": "D",
+    "is_open_seat": false,
+    "dem_median": 0.5806,
+    "gop_median": 0.3804,
+    "dem_incumbency_adv": 0,
+    "gop_incumbency_adv": 0,
+    "is_seat_up": true
+  },
+  {
+    "chamber_id": "ak-senate",
+    "district_number": "J",
+    "incumbent_party": "D",
+    "is_open_seat": false,
+    "dem_median": 0.56,
+    "gop_median": 0.3983,
+    "dem_incumbency_adv": 0,
+    "gop_incumbency_adv": 0,
+    "is_seat_up": false
+  },
+  {
+    "chamber_id": "ak-senate",
+    "district_number": "K",
+    "incumbent_party": "D",
+    "is_open_seat": false,
+    "dem_median": 0.5144,
+    "gop_median": 0.4486,
+    "dem_incumbency_adv": 0,
+    "gop_incumbency_adv": 0,
+    "is_seat_up": true
+  },
+  {
+    "chamber_id": "ak-senate",
+    "district_number": "L",
+    "incumbent_party": "R",
+    "is_open_seat": false,
+    "dem_median": 0.35,
+    "gop_median": 0.6,
+    "dem_incumbency_adv": 0,
+    "gop_incumbency_adv": 0,
+    "is_seat_up": false
+  },
+  {
+    "chamber_id": "ak-senate",
+    "district_number": "M",
+    "incumbent_party": "R",
+    "is_open_seat": false,
+    "dem_median": 0.26,
+    "gop_median": 0.7,
+    "dem_incumbency_adv": 0,
+    "gop_incumbency_adv": 0,
+    "is_seat_up": true
+  },
+  {
+    "chamber_id": "ak-senate",
+    "district_number": "N",
+    "incumbent_party": "R",
+    "is_open_seat": false,
+    "dem_median": 0.2215,
+    "gop_median": 0.7396,
+    "dem_incumbency_adv": 0,
+    "gop_incumbency_adv": 0,
+    "is_seat_up": false
+  },
+  {
+    "chamber_id": "ak-senate",
+    "district_number": "O",
+    "incumbent_party": "R",
+    "is_open_seat": false,
+    "dem_median": 0.2753,
+    "gop_median": 0.6883,
+    "dem_incumbency_adv": 0,
+    "gop_incumbency_adv": 0,
+    "is_seat_up": true
+  },
+  {
+    "chamber_id": "ak-senate",
+    "district_number": "P",
+    "incumbent_party": "D",
+    "is_open_seat": false,
+    "dem_median": 0.413,
+    "gop_median": 0.536,
+    "dem_incumbency_adv": 0,
+    "gop_incumbency_adv": 0,
+    "is_seat_up": false
+  },
+  {
+    "chamber_id": "ak-senate",
+    "district_number": "Q",
+    "incumbent_party": "R",
+    "is_open_seat": false,
+    "dem_median": 0.3597,
+    "gop_median": 0.6026,
+    "dem_incumbency_adv": 0,
+    "gop_incumbency_adv": 0,
+    "is_seat_up": true
+  },
+  {
+    "chamber_id": "ak-senate",
+    "district_number": "R",
+    "incumbent_party": "R",
+    "is_open_seat": false,
+    "dem_median": 0.47,
+    "gop_median": 0.4522,
+    "dem_incumbency_adv": 0,
+    "gop_incumbency_adv": 0,
+    "is_seat_up": false
+  },
+  {
+    "chamber_id": "ak-senate",
+    "district_number": "S",
+    "incumbent_party": "D",
+    "is_open_seat": false,
+    "dem_median": 0.5615,
+    "gop_median": 0.3867,
+    "dem_incumbency_adv": 0,
+    "gop_incumbency_adv": 0,
+    "is_seat_up": true
+  },
+  {
+    "chamber_id": "ak-senate",
+    "district_number": "T",
+    "incumbent_party": "D",
+    "is_open_seat": false,
+    "dem_median": 0.5522,
+    "gop_median": 0.3823,
+    "dem_incumbency_adv": 0,
+    "gop_incumbency_adv": 0,
+    "is_seat_up": false
+  }
+]
