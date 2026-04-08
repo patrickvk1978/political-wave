@@ -67,7 +67,7 @@ export function ParameterBar({ params, onChange }: ParameterBarProps) {
             type="range"
             min={0}
             max={MAX}
-            step={0.001}
+            step={0.01}
             value={params.wave}
             onChange={e => onChange({ wave: parseFloat(e.target.value) })}
             className="w-full h-1.5 rounded-full appearance-none cursor-pointer accent-blue-600 relative"
