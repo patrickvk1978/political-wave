@@ -17,33 +17,39 @@ const MARKERS = [
 
 function WaveFill({ progress }: { progress: number }) {
   const normalized = Math.max(0, Math.min(progress / 100, 1))
-  const crestY = 48 - normalized * 34
-  const shoulderY = 24 + normalized * 5
-  const taperY = 52 - normalized * 10
-  const innerStartY = 54 - normalized * 18
-  const innerEndY = 60 - normalized * 4
+  const waveWidth = 4 + normalized * 34
+  const effectiveWidth = Math.min(waveWidth, Math.max(progress, 2))
+  const left = Math.max(0, progress - effectiveWidth)
+  const crestY = 56 - normalized * 42
+  const shoulderY = 26 + normalized * 4
+  const taperMidY = 44 + normalized * 8
+  const innerStartY = 59 - normalized * 24
+  const innerMidY = 55 - normalized * 8
+  const innerEndY = 60 - normalized * 2
 
   const areaPath = [
     `M 0 60`,
-    `L 0 ${crestY}`,
-    `C 4 ${crestY - 4} 10 ${crestY - 5} 14 ${shoulderY}`,
-    `C 22 ${shoulderY + 2} 42 ${shoulderY + 8} 66 ${taperY}`,
-    `C 78 ${taperY + 6} 90 58 100 60`,
+    `C 2 58 5 ${crestY + 8} 9 ${crestY}`,
+    `C 14 ${crestY - 5} 24 ${crestY - 3} 32 ${shoulderY}`,
+    `C 46 ${shoulderY + 3} 66 ${taperMidY} 84 55`,
+    `C 91 58 96 59 100 60`,
     `L 0 60 Z`,
   ].join(' ')
 
   const linePath = [
-    `M 10 ${innerStartY}`,
-    `C 16 ${innerStartY - 6} 20 ${innerStartY + 5} 26 ${innerStartY - 1}`,
-    `S 36 ${innerStartY + 10} 42 ${innerStartY + 4}`,
-    `S 54 ${innerStartY + 16} 60 ${innerStartY + 10}`,
-    `S 72 ${innerEndY - 1} 78 ${innerEndY - 4}`,
-    `S 90 ${innerEndY + 2} 96 ${innerEndY}`,
+    `M 8 ${innerStartY}`,
+    `C 16 ${innerStartY - 8} 20 ${innerStartY + 6} 28 ${innerStartY - 2}`,
+    `S 42 ${innerMidY + 8} 50 ${innerMidY}`,
+    `S 66 ${innerMidY + 10} 74 ${innerMidY + 5}`,
+    `S 88 ${innerEndY + 3} 96 ${innerEndY}`,
   ].join(' ')
 
   return (
     <div className="wave-fill-shell absolute inset-x-0 top-0 bottom-0 overflow-visible pointer-events-none">
-      <div className="wave-fill-clip h-full" style={{ width: `${progress}%` }}>
+      <div
+        className="wave-fill-clip h-full"
+        style={{ left: `${left}%`, width: `${effectiveWidth}%` }}
+      >
         <svg
           viewBox="0 0 100 60"
           preserveAspectRatio="none"
