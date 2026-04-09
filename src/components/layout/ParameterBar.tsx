@@ -18,31 +18,21 @@ const MARKERS = [
 function WaveFill({ progress }: { progress: number }) {
   const normalized = Math.max(0, Math.min(progress / 100, 1))
   const effectiveWidth = Math.max(progress, 2)
-  const tailTopY = 60 - normalized * 12
-  const midTopY = 60 - normalized * 22
-  const crestY = 60 - normalized * 54
-  const frontShoulderY = 60 - normalized * 34
-  const frontDropY = 60 - normalized * 10
-  const innerStartY = 61 - normalized * 10
-  const innerMidY = 60 - normalized * 18
-  const innerCrestY = 60 - normalized * 30
-  const innerEndY = 60 - normalized * 6
+  const railY = 58
+  const tailTopY = railY - normalized * 8
+  const midTopY = railY - normalized * 18
+  const crestY = railY - normalized * 56
+  const frontShoulderY = railY - normalized * 30
+  const frontLipY = railY - normalized * 44
+  const frontDropY = railY - normalized * 2
 
   const areaPath = [
-    `M 0 60`,
-    `C 10 ${tailTopY} 26 ${tailTopY - 2} 48 ${midTopY}`,
-    `C 66 ${midTopY - 2} 80 ${frontShoulderY} 88 ${crestY}`,
-    `C 92 ${crestY - 4} 97 ${frontDropY - 6} 100 ${frontDropY}`,
-    `L 100 60`,
-    `L 0 60 Z`,
-  ].join(' ')
-
-  const linePath = [
-    `M 6 ${innerStartY}`,
-    `C 14 ${innerStartY - 3} 20 ${innerStartY + 4} 28 ${innerStartY}`,
-    `S 42 ${innerMidY + 5} 50 ${innerMidY}`,
-    `S 66 ${innerMidY + 6} 74 ${innerCrestY}`,
-    `S 88 ${innerEndY + 2} 96 ${innerEndY}`,
+    `M 0 ${railY}`,
+    `C 12 ${tailTopY} 28 ${tailTopY - 1} 50 ${midTopY}`,
+    `C 70 ${midTopY - 3} 82 ${frontShoulderY} 90 ${crestY}`,
+    `C 94 ${frontLipY} 98 ${frontDropY - 10} 100 ${frontDropY}`,
+    `L 100 ${railY}`,
+    `L 0 ${railY} Z`,
   ].join(' ')
 
   return (
@@ -58,8 +48,6 @@ function WaveFill({ progress }: { progress: number }) {
           aria-hidden="true"
         >
           <path d={areaPath} className="wave-fill-area" />
-          <path d={linePath} className="wave-fill-line wave-fill-line-a" />
-          <path d={linePath} className="wave-fill-line wave-fill-line-b" />
         </svg>
       </div>
     </div>
