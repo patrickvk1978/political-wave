@@ -17,22 +17,21 @@ const MARKERS = [
 
 function WaveFill({ progress }: { progress: number }) {
   const normalized = Math.max(0, Math.min(progress / 100, 1))
-  const waveWidth = 4 + normalized * 34
-  const effectiveWidth = Math.min(waveWidth, Math.max(progress, 2))
-  const left = Math.max(0, progress - effectiveWidth)
-  const crestY = 56 - normalized * 42
-  const shoulderY = 26 + normalized * 4
-  const taperMidY = 44 + normalized * 8
-  const innerStartY = 59 - normalized * 24
-  const innerMidY = 55 - normalized * 8
-  const innerEndY = 60 - normalized * 2
+  const effectiveWidth = Math.max(progress, 2)
+  const crestY = 58 - normalized * 52
+  const shoulderY = 20 + normalized * 6
+  const taperMidY = 42 + normalized * 10
+  const tailY = 56 + normalized * 2
+  const innerStartY = 61 - normalized * 30
+  const innerMidY = 54 - normalized * 14
+  const innerEndY = 60 - normalized * 4
 
   const areaPath = [
     `M 0 60`,
-    `C 2 58 5 ${crestY + 8} 9 ${crestY}`,
-    `C 14 ${crestY - 5} 24 ${crestY - 3} 32 ${shoulderY}`,
-    `C 46 ${shoulderY + 3} 66 ${taperMidY} 84 55`,
-    `C 91 58 96 59 100 60`,
+    `C 2 58 4 ${crestY + 10} 7 ${crestY}`,
+    `C 11 ${crestY - 8} 18 ${crestY - 10} 26 ${shoulderY}`,
+    `C 42 ${shoulderY + 2} 62 ${taperMidY} 80 ${tailY}`,
+    `C 90 58 96 59 100 60`,
     `L 0 60 Z`,
   ].join(' ')
 
@@ -48,7 +47,7 @@ function WaveFill({ progress }: { progress: number }) {
     <div className="wave-fill-shell absolute inset-x-0 top-0 bottom-0 overflow-visible pointer-events-none">
       <div
         className="wave-fill-clip h-full"
-        style={{ left: `${left}%`, width: `${effectiveWidth}%` }}
+        style={{ left: '0%', width: `${effectiveWidth}%` }}
       >
         <svg
           viewBox="0 0 100 60"
@@ -80,7 +79,7 @@ export function ParameterBar({ params, onChange }: ParameterBarProps) {
         </div>
 
         {/* Markers above track */}
-        <div className="relative hidden sm:block h-8 mb-1">
+        <div className="relative hidden sm:block h-11 mb-1">
           {MARKERS.filter(m => m.row === 'above').map(m => {
             const left = (m.value / MAX) * 100
             return (
@@ -114,7 +113,7 @@ export function ParameterBar({ params, onChange }: ParameterBarProps) {
             })}
           </div>
 
-          <div className="relative h-18 sm:h-20">
+          <div className="relative h-22 sm:h-24">
             <WaveFill progress={progress} />
             <div className="wave-slider-track absolute inset-x-0 bottom-3 h-5 rounded-full" />
             <input

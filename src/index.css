@@ -35,7 +35,7 @@ body {
 }
 
 .wave-fill-shell {
-  height: 72px;
+  height: 96px;
 }
 
 .wave-fill-clip {
@@ -43,7 +43,6 @@ body {
   top: 0;
   max-width: 100%;
   transition:
-    left 180ms ease-out,
     width 180ms ease-out;
   overflow: visible;
 }
@@ -54,7 +53,7 @@ body {
 
 .wave-fill-area {
   fill: rgba(125, 211, 252, 0.55);
-  filter: drop-shadow(0 6px 10px rgba(125, 211, 252, 0.2));
+  filter: drop-shadow(0 8px 12px rgba(125, 211, 252, 0.22));
 }
 
 .wave-fill-line {
