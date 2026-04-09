@@ -19,18 +19,18 @@ function WaveFill({ progress }: { progress: number }) {
   const normalized = Math.max(0, Math.min(progress / 100, 1))
   const effectiveWidth = Math.max(progress, 2)
   const railY = 58
-  const tailTopY = railY - normalized * 8
-  const midTopY = railY - normalized * 18
-  const crestY = railY - normalized * 56
-  const frontShoulderY = railY - normalized * 30
-  const frontLipY = railY - normalized * 44
+  const tailTopY = railY - normalized * 6
+  const midTopY = railY - normalized * 14
+  const lateRiseY = railY - normalized * 24
+  const crestY = railY - normalized * 60
+  const frontLipY = railY - normalized * 50
   const frontDropY = railY - normalized * 2
 
   const areaPath = [
     `M 0 ${railY}`,
-    `C 12 ${tailTopY} 28 ${tailTopY - 1} 50 ${midTopY}`,
-    `C 70 ${midTopY - 3} 82 ${frontShoulderY} 90 ${crestY}`,
-    `C 94 ${frontLipY} 98 ${frontDropY - 10} 100 ${frontDropY}`,
+    `C 18 ${tailTopY} 38 ${tailTopY - 1} 62 ${midTopY}`,
+    `C 76 ${midTopY - 1} 84 ${lateRiseY} 90 ${crestY}`,
+    `C 94 ${frontLipY} 97 ${frontDropY - 14} 100 ${frontDropY}`,
     `L 100 ${railY}`,
     `L 0 ${railY} Z`,
   ].join(' ')
